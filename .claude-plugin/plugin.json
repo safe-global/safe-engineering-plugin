@@ -1,0 +1,46 @@
+{
+  "name": "safe-engineering",
+  "version": "1.0.0",
+  "description": "AI-powered development tools for the Safe-wallet monorepo. Specialized agents for TypeScript/React/Next.js code review, feature architecture validation, multi-chain patterns, Redux store design, and Safe SDK integration. Includes 22 specialized agents, 17 commands, and 10 skills.",
+  "author": {
+    "name": "Safe Team",
+    "url": "https://safe.global"
+  },
+  "basedOn": {
+    "name": "compound-engineering",
+    "version": "2.28.0",
+    "author": {
+      "name": "Kieran Klaassen",
+      "email": "kieran@every.to",
+      "url": "https://github.com/kieranklaassen"
+    },
+    "repository": "https://github.com/EveryInc/compound-engineering-plugin",
+    "license": "MIT"
+  },
+  "homepage": "https://github.com/safe-global/safe-engineering-plugin",
+  "license": "MIT",
+  "keywords": [
+    "safe-wallet",
+    "gnosis-safe",
+    "multi-signature",
+    "web3",
+    "ethereum",
+    "typescript",
+    "react",
+    "next.js",
+    "mui",
+    "redux",
+    "ethers",
+    "feature-architecture",
+    "lazy-loading",
+    "code-review",
+    "workflow-automation",
+    "compound-engineering"
+  ],
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}
