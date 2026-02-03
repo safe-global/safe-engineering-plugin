@@ -10,7 +10,7 @@ When making changes to this plugin, maintain attribution to the original work.
 
 **IMPORTANT**: Every change to this plugin MUST include updates to all three files:
 
-1. **`.claude-plugin/plugin.json`** - Bump version using semver
+1. **`plugins/safe-engineering/plugin.json`** - Bump version using semver
 2. **`CHANGELOG.md`** - Document changes using Keep a Changelog format
 3. **`README.md`** - Verify/update component counts and tables
 
@@ -24,7 +24,7 @@ When making changes to this plugin, maintain attribution to the original work.
 
 Before committing ANY changes:
 
-- [ ] Version bumped in `.claude-plugin/plugin.json`
+- [ ] Version bumped in `plugins/safe-engineering/plugin.json`
 - [ ] CHANGELOG.md updated with changes
 - [ ] README.md component counts verified
 - [ ] README.md tables accurate (agents, commands, skills)
@@ -35,21 +35,23 @@ Before committing ANY changes:
 ```
 safe-engineering-plugin/
 ├── .claude-plugin/
-│   ├── plugin.json          # Plugin metadata
 │   └── marketplace.json     # Marketplace catalog
-├── agents/
-│   ├── review/             # Code review agents (12)
-│   ├── research/           # Research agents (5)
-│   ├── design/             # Design agents (3)
-│   └── workflow/           # Workflow agents (3)
-├── commands/
-│   ├── workflows/          # Core workflow commands
-│   └── *.md                # Utility commands
-├── skills/
-│   └── */SKILL.md          # All skills
-├── README.md               # User documentation
-├── CHANGELOG.md            # Version history
-└── CLAUDE.md               # Development guidelines (this file)
+├── plugins/
+│   └── safe-engineering/
+│       ├── plugin.json      # Plugin metadata
+│       ├── agents/
+│       │   ├── review/      # Code review agents (12)
+│       │   ├── research/    # Research agents (5)
+│       │   ├── design/      # Design agents (3)
+│       │   └── workflow/    # Workflow agents (3)
+│       ├── commands/
+│       │   ├── workflows/   # Core workflow commands
+│       │   └── *.md         # Utility commands
+│       └── skills/
+│           └── */SKILL.md   # All skills
+├── README.md                # User documentation
+├── CHANGELOG.md             # Version history
+└── CLAUDE.md                # Development guidelines (this file)
 ```
 
 ## Safe-Specific Agents
@@ -90,13 +92,13 @@ When adding or modifying skills, verify compliance with skill-creator spec:
 
 ```bash
 # Count agents
-ls agents/review/*.md agents/research/*.md agents/design/*.md agents/workflow/*.md | wc -l
+ls plugins/safe-engineering/agents/review/*.md plugins/safe-engineering/agents/research/*.md plugins/safe-engineering/agents/design/*.md plugins/safe-engineering/agents/workflow/*.md | wc -l
 
 # Count commands
-ls commands/*.md commands/workflows/*.md | wc -l
+ls plugins/safe-engineering/commands/*.md plugins/safe-engineering/commands/workflows/*.md | wc -l
 
 # Count skills
-ls -d skills/*/ | wc -l
+ls -d plugins/safe-engineering/skills/*/ | wc -l
 ```
 
 ## Safe-Wallet Patterns to Maintain
