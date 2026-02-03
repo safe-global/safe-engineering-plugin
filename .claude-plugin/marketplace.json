@@ -1,13 +1,12 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "safe-marketplace",
   "owner": {
     "name": "Safe Team",
-    "url": "https://safe.global"
+    "email": "dev@safe.global"
   },
-  "metadata": {
-    "description": "Plugin marketplace for Safe-wallet development tools",
-    "version": "1.0.0"
-  },
+  "version": "1.0.0",
+  "description": "Plugin marketplace for Safe-wallet development tools",
   "plugins": [
     {
       "name": "safe-engineering",
@@ -15,18 +14,10 @@
       "version": "1.0.0",
       "author": {
         "name": "Safe Team",
-        "url": "https://safe.global"
+        "email": "dev@safe.global"
       },
-      "homepage": "https://github.com/compojoom/safe-engineering-plugin",
-      "tags": [
-        "safe-wallet",
-        "web3",
-        "typescript",
-        "code-review",
-        "workflow-automation",
-        "compound-engineering"
-      ],
-      "source": "."
+      "category": "development",
+      "source": "github.com/compojoom/safe-engineering-plugin"
     }
   ]
 }
