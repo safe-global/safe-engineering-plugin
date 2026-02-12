@@ -40,7 +40,9 @@ Extract design specifications:
 
 ### 2. Implementation Capture
 
-Use agent-browser CLI to capture the current implementation:
+Determine the platform from the component file path, then use the appropriate tool:
+
+**For Web (`apps/web/`)** — Use agent-browser CLI:
 
 ```bash
 agent-browser open [url]
@@ -59,6 +61,17 @@ yarn workspace @safe-global/web storybook
 npm install -g agent-browser
 agent-browser install  # Downloads Chromium
 ```
+
+**For Mobile (`apps/mobile/`)** — Use mobile-mcp tools:
+
+```
+mobile_list_available_devices              # Find device
+mobile_launch_app (device, packageName)    # Launch the app
+mobile_list_elements_on_screen (device)    # Discover UI elements
+mobile_take_screenshot (device)            # Capture current state
+```
+
+Navigate to the target screen by tapping through the app using `mobile_click_on_screen_at_coordinates` with coordinates from `mobile_list_elements_on_screen`. Use `mobile_swipe_on_screen` to scroll if needed.
 
 ### 3. Systematic Comparison
 
