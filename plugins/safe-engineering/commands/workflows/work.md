@@ -21,7 +21,6 @@ This command takes a work document (plan, specification, or todo file) and execu
 ### Phase 1: Quick Start
 
 1. **Read Plan and Clarify**
-
    - Read the work document completely
    - Review any references or links provided in the plan
    - If anything is unclear or ambiguous, ask clarifying questions now
@@ -50,13 +49,16 @@ This command takes a work document (plan, specification, or todo file) and execu
    **If on the default branch**, choose how to proceed:
 
    **Option A: Create a new branch**
+
    ```bash
    git pull origin [default_branch]
    git checkout -b feature-branch-name
    ```
+
    Use a meaningful name based on the work (e.g., `feat/user-authentication`, `fix/email-validation`).
 
    **Option B: Use a worktree (recommended for parallel development)**
+
    ```bash
    skill: git-worktree
    # The skill will create a new branch from the default branch in an isolated worktree
@@ -104,16 +106,17 @@ This command takes a work document (plan, specification, or todo file) and execu
 
    After completing each task, evaluate whether to create an incremental commit:
 
-   | Commit when... | Don't commit when... |
-   |----------------|---------------------|
-   | Logical unit complete (model, service, component) | Small part of a larger unit |
-   | Tests pass + meaningful progress | Tests failing |
-   | About to switch contexts (backend → frontend) | Purely scaffolding with no behavior |
-   | About to attempt risky/uncertain changes | Would need a "WIP" commit message |
+   | Commit when...                                    | Don't commit when...                |
+   | ------------------------------------------------- | ----------------------------------- |
+   | Logical unit complete (model, service, component) | Small part of a larger unit         |
+   | Tests pass + meaningful progress                  | Tests failing                       |
+   | About to switch contexts (backend → frontend)     | Purely scaffolding with no behavior |
+   | About to attempt risky/uncertain changes          | Would need a "WIP" commit message   |
 
    **Heuristic:** "Can I write a commit message that describes a complete, valuable change? If yes, commit. If the message would be 'WIP' or 'partial X', wait."
 
    **Commit workflow:**
+
    ```bash
    # 1. Verify tests pass (use project's test command)
    # Examples: bin/rails test, npm test, pytest, go test, etc.
@@ -130,7 +133,6 @@ This command takes a work document (plan, specification, or todo file) and execu
    **Note:** Incremental commits use clean conventional messages without attribution footers. The final Phase 4 commit/PR includes the full attribution.
 
 3. **Follow Existing Patterns**
-
    - The plan should reference similar code - read those files first
    - Match naming conventions exactly
    - Reuse existing components where possible
@@ -138,7 +140,6 @@ This command takes a work document (plan, specification, or todo file) and execu
    - When in doubt, grep for similar implementations
 
 4. **Test Continuously**
-
    - Run relevant tests after each significant change
    - Don't wait until the end to test
    - Fix failures immediately
@@ -147,7 +148,6 @@ This command takes a work document (plan, specification, or todo file) and execu
 5. **Figma Design Sync** (if applicable)
 
    For UI work with Figma designs:
-
    - Implement components following design specs
    - Use figma-design-sync agent iteratively to compare
    - Fix visual differences identified
@@ -176,7 +176,6 @@ This command takes a work document (plan, specification, or todo file) and execu
 2. **Consider Reviewer Agents** (Optional)
 
    Use for complex, risky, or large changes:
-
    - **code-simplicity-reviewer**: Check for unnecessary complexity
    - **performance-oracle**: Check for performance issues
    - **security-sentinel**: Scan for security vulnerabilities
@@ -226,19 +225,23 @@ This command takes a work document (plan, specification, or todo file) and execu
    For **any** design changes, new views, or UI modifications, you MUST capture and upload screenshots:
 
    **Step 1: Start dev server** (if not running)
+
    ```bash
    bin/dev  # Run in background
    ```
 
    **Step 2: Capture screenshots with agent-browser CLI**
+
    ```bash
    agent-browser open http://localhost:3000/[route]
    agent-browser snapshot -i
    agent-browser screenshot output.png
    ```
+
    See the `agent-browser` skill for detailed usage.
 
    **Step 3: Upload using imgup skill**
+
    ```bash
    skill: imgup
    # Then upload each screenshot:
@@ -257,31 +260,36 @@ This command takes a work document (plan, specification, or todo file) and execu
 
    ```bash
    git push -u origin feature-branch-name
-
-   gh pr create --title "Feature: [Description]" --body "$(cat <<'EOF'
-   ## Summary
-   - What was built
-   - Why it was needed
-   - Key decisions made
-
-   ## Testing
-   - Tests added/modified
-   - Manual testing performed
-
-   ## Before / After Screenshots
-   | Before | After |
-   |--------|-------|
-   | ![before](URL) | ![after](URL) |
-
-   ## Figma Design
-   [Link if applicable]
-
-   ---
-
-   [![Compound Engineered](https://img.shields.io/badge/Compound-Engineered-6366f1)](https://github.com/EveryInc/compound-engineering-plugin) 🤖 Generated with [Claude Code](https://claude.com/claude-code)
-   EOF
-   )"
    ```
+
+   **PR description:** Check for a `PULL_REQUEST_TEMPLATE.md` in the repo (typically at `.github/PULL_REQUEST_TEMPLATE.md`). If found, use it as the PR body and fill in the sections based on the work done. If no template exists, use this fallback:
+
+   ```
+   ## What it solves
+
+   Resolves:
+
+   ## How this PR fixes it
+
+   ## How to test it
+
+   ## Screenshots
+
+   ## Checklist
+
+   - [ ] I've tested the branch on mobile 📱
+   - [ ] I've documented how it affects the analytics (if at all) 📊
+   - [ ] I've written a unit/e2e test for it (if applicable) 🧑‍💻
+   ```
+
+   Always append at the end:
+
+   ```
+   ---
+   [![Safe Engineering](https://img.shields.io/badge/Safe-Engineering-12ff80)](https://github.com/5afe/safe-engineering-plugin) 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+   ```
+
+   Use `gh pr create --title "[type]: Brief description" --body "$pr_body"` to create the PR.
 
 4. **Notify User**
    - Summarize what was completed
@@ -336,8 +344,8 @@ Before creating PR, verify:
 - [ ] Figma designs match implementation (if applicable)
 - [ ] Before/after screenshots captured and uploaded (for UI changes)
 - [ ] Commit messages follow conventional format
-- [ ] PR description includes summary, testing notes, and screenshots
-- [ ] PR description includes Compound Engineered badge
+- [ ] PR description uses repo's PULL_REQUEST_TEMPLATE.md (or fallback)
+- [ ] PR description includes Safe Engineering badge
 
 ## When to Use Reviewer Agents
 
