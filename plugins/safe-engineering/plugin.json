@@ -1,7 +1,7 @@
 {
   "name": "safe-engineering",
-  "version": "1.0.0",
-  "description": "AI-powered development tools for the Safe-wallet monorepo. Specialized agents for TypeScript/React/Next.js code review, feature architecture validation, multi-chain patterns, Redux store design, and Safe SDK integration. Based on compound-engineering by Kieran Klaassen (EveryInc). Includes 22 specialized agents, 17 commands, and 10 skills.",
+  "version": "1.1.0",
+  "description": "AI-powered development tools for the Safe-wallet monorepo. Specialized agents for TypeScript/React/Next.js code review, feature architecture validation, multi-chain patterns, Redux store design, and Safe SDK integration. Based on compound-engineering by Kieran Klaassen (EveryInc). Includes 22 specialized agents, 15 commands, and 12 skills.",
   "author": {
     "name": "Safe Team",
     "url": "https://safe.global"

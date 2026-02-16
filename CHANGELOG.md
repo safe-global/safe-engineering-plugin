@@ -5,6 +5,19 @@ All notable changes to the safe-engineering plugin will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-02-16
+
+### Changed
+
+- **`resolve_pr_parallel`** - Migrated from command to skill with GraphQL scripts for fetching and resolving PR review threads, matching upstream compound-engineering structure
+  - Added `scripts/get-pr-comments` — GraphQL query to fetch unresolved review threads (adapted for `safe-global` repos)
+  - Added `scripts/resolve-pr-thread` — GraphQL mutation to mark threads as resolved
+  - Updated SKILL.md with detailed workflow steps and script references
+
+### Fixed
+
+- Updated component counts: 15 commands, 12 skills (was incorrectly showing 17 commands, 10 skills)
+
 ## [1.0.0] - 2026-02-02
 
 ### Added
@@ -59,11 +72,11 @@ Core workflow commands:
 - `/workflows:compound` - Knowledge documentation
 
 Utility commands:
-- `/deepen-plan`, `/changelog`, `/create-agent-skill`, `/generate_command`, `/heal-skill`, `/lfg`, `/plan_review`, `/resolve_parallel`, `/resolve_pr_parallel`, `/resolve_todo_parallel`, `/test-browser`
+- `/deepen-plan`, `/changelog`, `/create-agent-skill`, `/generate_command`, `/heal-skill`, `/lfg`, `/plan_review`, `/resolve_parallel`, `/resolve_todo_parallel`, `/test-browser`
 
 #### Skills
 
-- `compound-docs`, `create-agent-skills`, `frontend-design`, `skill-creator`, `agent-native-architecture`, `file-todos`, `git-worktree`, `brainstorming`, `agent-browser`, `gemini-imagegen`
+- `compound-docs`, `create-agent-skills`, `frontend-design`, `skill-creator`, `agent-native-architecture`, `file-todos`, `git-worktree`, `brainstorming`, `agent-browser`, `gemini-imagegen`, `mobile-mcp`, `resolve-pr-parallel`
 
 #### MCP Server
 
@@ -80,6 +93,6 @@ This plugin is based on [compound-engineering](https://github.com/EveryInc/compo
 ### Summary
 
 - 22 agents (5 Safe-specific + 17 adapted from compound-engineering)
-- 17 commands
-- 10 skills
+- 15 commands
+- 12 skills
 - 1 MCP server

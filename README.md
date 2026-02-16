@@ -64,8 +64,8 @@ This plugin is optimized for the Safe-wallet monorepo:
 | Component | Count |
 |-----------|-------|
 | Agents | 22 |
-| Commands | 17 |
-| Skills | 10 |
+| Commands | 15 |
+| Skills | 12 |
 | MCP Servers | 1 |
 
 ## Agents
@@ -125,7 +125,7 @@ This plugin is optimized for the Safe-wallet monorepo:
 | `/workflows:work` | Execute work items systematically with worktrees |
 | `/workflows:compound` | Document solved problems to compound team knowledge |
 
-### Utility Commands (12)
+### Utility Commands (10)
 
 | Command | Description |
 |---------|-------------|
@@ -137,7 +137,6 @@ This plugin is optimized for the Safe-wallet monorepo:
 | `/lfg` | Full autonomous engineering workflow |
 | `/plan_review` | Multi-agent plan review in parallel |
 | `/resolve_parallel` | Resolve TODO comments in parallel |
-| `/resolve_pr_parallel` | Resolve PR comments in parallel |
 | `/resolve_todo_parallel` | Resolve todo items in parallel |
 | `/test-browser` | Browser testing with agent-browser |
 
@@ -166,6 +165,8 @@ This plugin is optimized for the Safe-wallet monorepo:
 | Skill | Description |
 |-------|-------------|
 | `agent-browser` | CLI-based browser automation for testing |
+| `mobile-mcp` | Mobile device automation for iOS/Android simulators and devices |
+| `resolve-pr-parallel` | Resolve PR review comments in parallel with GraphQL scripts |
 
 ### Optional
 
