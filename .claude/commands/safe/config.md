@@ -19,7 +19,6 @@ Binary files (copy with `cp`):
 - `config/sounds/peon/i-can-do-that.mp3`
 - `config/sounds/peon/ready-to-work.mp3`
 - `config/sounds/peon/jobs-done.mp3`
-- `config/sounds/peon/jobs-done-peasant.mp3`
 - `config/sounds/peon/work-complete.mp3`
 
 ## Steps

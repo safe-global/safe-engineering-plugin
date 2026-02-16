@@ -102,17 +102,6 @@
           }
         ]
       }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/sounds/peon/play-sound.sh start"
-          }
-        ]
-      }
     ]
   },
   "statusLine": {

@@ -35,7 +35,6 @@ case "$CATEGORY" in
     complete)
         files=(
             "$SOUNDS_DIR/jobs-done.mp3"
-            "$SOUNDS_DIR/jobs-done-peasant.mp3"
             "$SOUNDS_DIR/work-complete.mp3"
         )
         ;;
