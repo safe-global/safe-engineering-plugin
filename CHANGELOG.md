@@ -5,6 +5,18 @@ All notable changes to the safe-engineering plugin will be documented in this fi
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-02-16
+
+### Added
+
+- **Team config distribution** — New `config/` directory with opinionated defaults for all Safe engineers, inspired by [trailofbits/claude-code-config](https://github.com/trailofbits/claude-code-config)
+- **`/safe:config` command** — Setup command that installs and updates all config components. Run from the cloned repo; to update, `git pull` and re-run.
+- **`config/settings.json`** — Security-hardened defaults: sandbox config, deny rules for credentials/secrets/crypto wallets, `rm -rf` blocker, push-to-main blocker, extended thinking, Warcraft peon sound hooks, statusline
+- **`config/mcp-template.json`** — Default MCP servers: Linear, Notion, Playwright, Mobile MCP, Figma
+- **`config/claude-md-template.md`** — Global CLAUDE.md with Safe-wallet patterns (feature architecture, multi-chain, Redux testing, type safety), code quality standards, and workflow conventions
+- **`config/scripts/statusline.sh`** — Two-line status bar showing model, git branch, context usage progress bar, session cost, duration, and cache hit rate (based on trailofbits/claude-code-config)
+- **Warcraft peon sounds** — 7 sound files (`config/sounds/peon/`) with `play-sound.sh` dispatcher mapped to Claude Code hooks: "Work work!" on permission prompts, "Job's done!" on completion, "Ready to work" on session start
+
 ## [1.1.0] - 2026-02-16
 
 ### Changed

@@ -9,6 +9,39 @@ AI-powered development tools for the Safe-wallet monorepo. Specialized agents fo
 >
 > This plugin adapts the compound-engineering plugin for Safe-wallet specific patterns and workflows. We are grateful to Kieran and the EveryInc team for creating the original plugin and making it open source under the MIT license.
 
+## Team Config
+
+This repo also distributes **opinionated default configs** for all Safe engineers. Run `/safe:config` to install everything.
+
+**First-time setup:**
+
+```bash
+git clone https://github.com/5afe/safe-engineering-plugin.git
+cd safe-engineering-plugin
+claude
+```
+
+Then run `/safe:config` inside the session. It walks you through installing each component and detects what you already have. To update later, `git pull` and re-run `/safe:config`.
+
+### What gets installed
+
+| Component | What it does |
+|-----------|-------------|
+| **settings.json** | Sandbox config, credential deny rules, `rm -rf` blocker, push-to-main blocker, extended thinking, sound hooks, statusline |
+| **CLAUDE.md** | Global dev standards — Safe-wallet patterns, TypeScript conventions, code quality limits |
+| **MCP servers** | Linear, Notion, Playwright, Mobile MCP, Figma |
+| **Statusline** | Two-line status bar: model, branch, context usage bar, cost, duration, cache hit rate |
+| **Warcraft peon sounds** | "Work work!" on prompts, "Job's done!" on completion, "Ready to work" on session start |
+
+### Sandboxing
+
+We use Claude Code's built-in `/sandbox` for filesystem and network isolation. The config includes:
+
+- **Sandbox mode** with `autoAllowBashIfSandboxed` — Bash commands within sandbox boundaries run without prompts
+- **Network allowlist** — github.com, npmjs.org, yarnpkg.com, docker socket
+- **Deny rules** — blocks reading SSH keys, cloud credentials, package tokens, crypto wallets, macOS keychain
+- **Hook guards** — blocks `rm -rf` (suggests `trash`), blocks direct push to main/master/dev
+
 ## Installation
 
 ### Claude Code CLI
